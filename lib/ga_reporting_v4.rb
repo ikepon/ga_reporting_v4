@@ -1,0 +1,3 @@
+module GaReportingV4
+  # Your code goes here...
+end
