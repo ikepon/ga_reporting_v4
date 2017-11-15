@@ -7,7 +7,7 @@ module GaReportingV4
 
       def all(user, path = default_path)
         json = user.access_token.get(base_uri + path).body
-        JSON.parse(json)['items'].map { |item| new(item, user) }
+        JSON.parse(json)['items'].map { |item| new(item.with_indifferent_access, user) }
       end
     end
   end
