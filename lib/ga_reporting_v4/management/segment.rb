@@ -1,8 +1,6 @@
 module GaReportingV4
   module Management
-    class Segment
-      extend Finder
-
+    class Segment < Base
       attr_accessor :id, :name, :definition, :user
 
       def initialize(attributes, user)

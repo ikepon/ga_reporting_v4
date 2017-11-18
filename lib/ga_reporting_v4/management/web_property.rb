@@ -1,8 +1,6 @@
 module GaReportingV4
   module Management
-    class WebProperty
-      extend Finder
-
+    class WebProperty < Base
       GA_ATTRIBUTES = {
         :id => 'id',
         :name => 'name',

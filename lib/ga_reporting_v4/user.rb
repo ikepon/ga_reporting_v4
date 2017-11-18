@@ -11,7 +11,7 @@ module GaReportingV4
       Management::Account.all(self)
     end
 
-    def account_summary
+    def account_summaries
       Management::AccountSummary.all(self)
     end
 

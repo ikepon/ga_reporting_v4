@@ -1,8 +1,6 @@
 module GaReportingV4
   module Management
-    class AccountSummary
-      extend Finder
-
+    class AccountSummary < Base
       attr_accessor :user, :account
 
       def initialize(attributes, user)

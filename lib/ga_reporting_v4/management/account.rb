@@ -1,8 +1,6 @@
 module GaReportingV4
   module Management
-    class Account
-      extend Finder
-
+    class Account < Base
       attr_accessor :id, :name, :user, :web_properties
 
       def initialize(attributes, user, web_properties = nil)

@@ -1,11 +1,12 @@
 module GaReportingV4
   module Management
-    class Profile < Base
+    class Goal < Base
       GA_ATTRIBUTES = {
         :id => 'id',
         :name => 'name',
         :account_id => 'accountId',
-        :web_property_id => 'webPropertyId'
+        :web_property_id => 'webPropertyId',
+        :profile_id => 'profileId'
       }
 
       attr_accessor *GA_ATTRIBUTES.keys
@@ -22,30 +23,24 @@ module GaReportingV4
 
       class << self
         def default_path
-          '/accounts/~all/webproperties/~all/profiles'
-        end
-
-        def build_from_summary(attributes, user)
-          Profile.new(attributes, user)
+          '/accounts/~all/webproperties/~all/profiles/~all/goals'
         end
 
         def for_account(account)
-          all(account.user, account.path + '/webproperties/~all/profiles')
+          all(account.user, account.path + '/webproperties/~all/profiles/~all/goals')
         end
 
         def for_web_property(web_property)
-          all(web_property.user, web_property.path + '/profiles')
+          all(web_property.user, web_property.path + '/profiles/~all/goals')
+        end
+
+        def for_profile(profile)
+          all(profile.user, profile.path + '/goals')
         end
       end
 
       def path
-        "/accounts/#{account_id}/webproperties/#{web_property_id}/profiles/#{id}"
-      end
-
-      # XXX: Only use `user.profiles.#{profile}.goals
-      #      Cannot use `web_properties.#{web_property}.profiles.#{profile}.goals
-      def goals
-        Goal.for_profile(self)
+        self.class.default_path + '/' + id.to_s
       end
     end
   end
