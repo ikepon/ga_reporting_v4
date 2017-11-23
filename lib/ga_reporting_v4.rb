@@ -1,6 +1,9 @@
 require 'ga_reporting_v4/version'
 
 require 'ga_reporting_v4/user'
+require 'ga_reporting_v4/report'
+require 'ga_reporting_v4/request'
+require 'ga_reporting_v4/response'
 
 require 'ga_reporting_v4/management/base'
 require 'ga_reporting_v4/management/account'
@@ -11,5 +14,13 @@ require 'ga_reporting_v4/management/segment'
 require 'ga_reporting_v4/management/web_property'
 
 module GaReportingV4
-  # Your code goes here...
+  class << self
+    def from_ga_string(str)
+      str.gsub(/ga:|mcf:|rt:/, '')
+    end
+
+    def to_ga_string(str, tracking_scope = "ga")
+      "#{$1}#{tracking_scope}:#{$2}" if str.to_s.camelize(:lower) =~ /^(-)?(.*)$/
+    end
+  end
 end
