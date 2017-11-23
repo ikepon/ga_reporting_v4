@@ -1,7 +1,7 @@
 require 'ga_reporting_v4/version'
 
 require 'ga_reporting_v4/user'
-require 'ga_reporting_v4/report'
+require 'ga_reporting_v4/model'
 require 'ga_reporting_v4/request'
 require 'ga_reporting_v4/response'
 
