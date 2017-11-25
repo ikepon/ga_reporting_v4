@@ -13,7 +13,6 @@ module GaReportingV4
       def self.default_path
         "/segments"
       end
-
     end
   end
 end

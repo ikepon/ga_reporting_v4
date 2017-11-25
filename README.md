@@ -1,5 +1,6 @@
 # GaReportingV4
-Short description and motivation.
+[![Build Status](https://travis-ci.org/ikepon/ga_reporting_v4.png)](https://travis-ci.org/ikepon/ga_reporting_v4)
+
 
 ## Usage
 How to use my plugin.

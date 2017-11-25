@@ -6,7 +6,7 @@ module GaReportingV4
     # @return [ListParameter] the set of all metrics
     def metrics(field = nil)
       @metrics ||= Set.new([])
-      field&.each { |f| @metrics << { expression: GaReportingV4.to_ga_string(f) } }
+      field.try(:each) { |f| @metrics << { expression: GaReportingV4.to_ga_string(f) } }
       @metrics
     end
 
@@ -16,7 +16,7 @@ module GaReportingV4
     # @return [ListParameter] the set of all dimensions
     def dimensions(field = nil)
       @dimensions ||= Set.new([])
-      field&.each { |f| @dimensions << { name: GaReportingV4.to_ga_string(f) } }
+      field.try(:each) { |f| @dimensions << { name: GaReportingV4.to_ga_string(f) } }
       @dimensions
     end
 

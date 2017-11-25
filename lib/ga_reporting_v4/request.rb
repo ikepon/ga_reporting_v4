@@ -13,7 +13,7 @@ module GaReportingV4
       @end_date = Date.current
 
       BASIC_OPTION_KEYS.each do |key|
-        self.send("#{key}=".to_sym, options[key]) if options&.has_key?(key)
+        self.send("#{key}=".to_sym, options[key]) if options.try(:has_key?, key)
       end
     end
 
