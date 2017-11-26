@@ -4,6 +4,7 @@ require 'rails/all'
 require 'rspec/rails'
 require 'vcr'
 require 'dotenv/load'
+require 'pry-byebug'
 require 'ga_reporting_v4'
 
 require 'support/oauth'
