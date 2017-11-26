@@ -4,7 +4,7 @@ module Support
   module OAuth
     def token
       # fill me in if you add more tests here, use the rake task oauth:token.
-      'ya29.GlwQBcArlhrjcPPxEYjVy7xRd6JSrr-Fkff_msL0vNPuheZ9WKLg1T9Bz605aDDoHN4RhN60tESTkw44TH3AoGb6uVsw60Rv3E3hmsR8FwHaif3YUrCBOAZb92DT7A'
+      'ya29.GlwQBWFqDY4P1tfbu-sjX33r12EGFbBJuuJELfHAgaKO87QFB2MttJdsW0IAylwMzRY9Iv6LwyOOvqIhsXcT-L8X8YBpTII3899_E7RCe6ZbbjXjEoQ4lcxTre23mQ'
     end
 
     def client
