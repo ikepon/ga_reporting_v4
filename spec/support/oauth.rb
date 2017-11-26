@@ -4,7 +4,7 @@ module Support
   module OAuth
     def token
       # fill me in if you add more tests here, use the rake task oauth:token.
-      'ya29.GlwQBaf-J-CvqwEAPI_Cd0YFDFWwdBTJPmpajC-MlihZ9KdeaGeAqECy7E9cJLZS20zt4ZTD2QFVEh1wa-GM3IO-orx-1l0HxsccRBSd9CgG2X65axvKi8qJVXZ3xw'
+      'ya29.GlwQBcY6519GZveD0nGMoCGtAiRplSe3TMS_Yc6e9Dyw4J1uBTCYokcIwWVNNIfz8XsRbmKXv6QQAt-R8GOQzzzLmPgaI1HR_LMNrXVhXEMcH-duOzDdGRsX0_13Dg'
     end
 
     def client
@@ -18,7 +18,9 @@ module Support
     end
 
     def access_token
-      OAuth2::AccessToken.new(client, token)
+      VCR.use_cassette('support/oauth') do
+        OAuth2::AccessToken.new(client, token)
+      end
     end
   end
 end
