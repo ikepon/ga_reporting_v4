@@ -1,0 +1,110 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.googleapis.com/analytics/v3/management/accounts/~all/webproperties/~all/profiles
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Authorization:
+      - Bearer ya29.GlwQBcY6519GZveD0nGMoCGtAiRplSe3TMS_Yc6e9Dyw4J1uBTCYokcIwWVNNIfz8XsRbmKXv6QQAt-R8GOQzzzLmPgaI1HR_LMNrXVhXEMcH-duOzDdGRsX0_13Dg
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Sun, 26 Nov 2017 16:36:04 GMT
+      Date:
+      - Sun, 26 Nov 2017 16:36:04 GMT
+      Cache-Control:
+      - private, max-age=0, must-revalidate, no-transform
+      Etag:
+      - '"sP5LBgqDii7ksJERAgMB0CpTbRM/MWcbwJjo-X-wV5lqhAfCOTyu4FI"'
+      Vary:
+      - Origin
+      - X-Origin
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - GSE
+      Alt-Svc:
+      - hq=":443"; ma=2592000; quic=51303431; quic=51303339; quic=51303338; quic=51303337;
+        quic=51303335,quic=":443"; ma=2592000; v="41,39,38,37,35"
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJraW5kIjoiYW5hbHl0aWNzI3Byb2ZpbGVzIiwidXNlcm5hbWUiOiJncm9zdXAuZGV2QGdtYWlsLmNvbSIsInRvdGFsUmVzdWx0cyI6NCwic3RhcnRJbmRleCI6MSwiaXRlbXNQZXJQYWdlIjoxMDAwLCJpdGVtcyI6W3siaWQiOiI5MDgyMjMzNCIsImtpbmQiOiJhbmFseXRpY3MjcHJvZmlsZSIsInNlbGZMaW5rIjoiaHR0cHM6Ly93d3cuZ29vZ2xlYXBpcy5jb20vYW5hbHl0aWNzL3YzL21hbmFnZW1lbnQvYWNjb3VudHMvNTQ1MTY5OTIvd2VicHJvcGVydGllcy9VQS01NDUxNjk5Mi0xL3Byb2ZpbGVzLzkwODIyMzM0IiwiYWNjb3VudElkIjoiNTQ1MTY5OTIiLCJ3ZWJQcm9wZXJ0eUlkIjoiVUEtNTQ1MTY5OTItMSIsImludGVybmFsV2ViUHJvcGVydHlJZCI6Ijg3NDc5NDczIiwibmFtZSI6IjMgUmF3IERhdGEgVmlldyIsImN1cnJlbmN5IjoiVVNEIiwidGltZXpvbmUiOiJBbWVyaWNhL0xvc19BbmdlbGVzIiwid2Vic2l0ZVVybCI6Imh0dHBzOi8vc2hvcC5nb29nbGVtZXJjaGFuZGlzZXN0b3JlLmNvbSIsImRlZmF1bHRQYWdlIjoiaG9tZSIsImV4Y2x1ZGVRdWVyeVBhcmFtZXRlcnMiOiJ2aWQsIGNpZCwgcGFnZV9ubywgbXQsIGtleSwgZXhlY3V0ZWRBY3Rpb24sIGV4ZWN1dGVBY3Rpb25TdGF0dXMiLCJzaXRlU2VhcmNoUXVlcnlQYXJhbWV0ZXJzIjoia2V5d29yZHMiLCJzdHJpcFNpdGVTZWFyY2hRdWVyeVBhcmFtZXRlcnMiOnRydWUsInR5cGUiOiJXRUIiLCJwZXJtaXNzaW9ucyI6eyJlZmZlY3RpdmUiOlsiUkVBRF9BTkRfQU5BTFlaRSJdfSwiY3JlYXRlZCI6IjIwMTQtMDktMDZUMTc6NTM6MzMuMzk3WiIsInVwZGF0ZWQiOiIyMDE3LTA1LTA4VDA4OjQ1OjI5Ljg5OFoiLCJlQ29tbWVyY2VUcmFja2luZyI6dHJ1ZSwiZW5oYW5jZWRFQ29tbWVyY2VUcmFja2luZyI6dHJ1ZSwiYm90RmlsdGVyaW5nRW5hYmxlZCI6dHJ1ZSwicGFyZW50TGluayI6eyJ0eXBlIjoiYW5hbHl0aWNzI3dlYnByb3BlcnR5IiwiaHJlZiI6Imh0dHBzOi8vd3d3Lmdvb2dsZWFwaXMuY29tL2FuYWx5dGljcy92My9tYW5hZ2VtZW50L2FjY291bnRzLzU0NTE2OTkyL3dlYnByb3BlcnRpZXMvVUEtNTQ1MTY5OTItMSJ9LCJjaGlsZExpbmsiOnsidHlwZSI6ImFuYWx5dGljcyNnb2FscyIsImhyZWYiOiJodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9hbmFseXRpY3MvdjMvbWFuYWdlbWVudC9hY2NvdW50cy81NDUxNjk5Mi93ZWJwcm9wZXJ0aWVzL1VBLTU0NTE2OTkyLTEvcHJvZmlsZXMvOTA4MjIzMzQvZ29hbHMifX0seyJpZCI6IjkyMzIwMjg5Iiwia2luZCI6ImFuYWx5dGljcyNwcm9maWxlIiwic2VsZkxpbmsiOiJodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9hbmFseXRpY3MvdjMvbWFuYWdlbWVudC9hY2NvdW50cy81NDUxNjk5Mi93ZWJwcm9wZXJ0aWVzL1VBLTU0NTE2OTkyLTEvcHJvZmlsZXMvOTIzMjAyODkiLCJhY2NvdW50SWQiOiI1NDUxNjk5MiIsIndlYlByb3BlcnR5SWQiOiJVQS01NDUxNjk5Mi0xIiwiaW50ZXJuYWxXZWJQcm9wZXJ0eUlkIjoiODc0Nzk0NzMiLCJuYW1lIjoiMSBNYXN0ZXIgVmlldyIsImN1cnJlbmN5IjoiVVNEIiwidGltZXpvbmUiOiJBbWVyaWNhL0xvc19BbmdlbGVzIiwid2Vic2l0ZVVybCI6Imh0dHBzOi8vc2hvcC5nb29nbGVtZXJjaGFuZGlzZXN0b3JlLmNvbSIsImRlZmF1bHRQYWdlIjoiaG9tZSIsImV4Y2x1ZGVRdWVyeVBhcmFtZXRlcnMiOiJ2aWQsIGNpZCwgcGFnZV9ubywgbXQsIGtleSwgZXhlY3V0ZWRBY3Rpb24sIGV4ZWN1dGVBY3Rpb25TdGF0dXMiLCJzaXRlU2VhcmNoUXVlcnlQYXJhbWV0ZXJzIjoia2V5d29yZHMiLCJzdHJpcFNpdGVTZWFyY2hRdWVyeVBhcmFtZXRlcnMiOnRydWUsInR5cGUiOiJXRUIiLCJwZXJtaXNzaW9ucyI6eyJlZmZlY3RpdmUiOlsiUkVBRF9BTkRfQU5BTFlaRSJdfSwiY3JlYXRlZCI6IjIwMTQtMTAtMTBUMTk6NTc6MTMuODMzWiIsInVwZGF0ZWQiOiIyMDE3LTA5LTEyVDE5OjAyOjIxLjQzMFoiLCJlQ29tbWVyY2VUcmFja2luZyI6dHJ1ZSwiZW5oYW5jZWRFQ29tbWVyY2VUcmFja2luZyI6dHJ1ZSwiYm90RmlsdGVyaW5nRW5hYmxlZCI6dHJ1ZSwicGFyZW50TGluayI6eyJ0eXBlIjoiYW5hbHl0aWNzI3dlYnByb3BlcnR5IiwiaHJlZiI6Imh0dHBzOi8vd3d3Lmdvb2dsZWFwaXMuY29tL2FuYWx5dGljcy92My9tYW5hZ2VtZW50L2FjY291bnRzLzU0NTE2OTkyL3dlYnByb3BlcnRpZXMvVUEtNTQ1MTY5OTItMSJ9LCJjaGlsZExpbmsiOnsidHlwZSI6ImFuYWx5dGljcyNnb2FscyIsImhyZWYiOiJodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9hbmFseXRpY3MvdjMvbWFuYWdlbWVudC9hY2NvdW50cy81NDUxNjk5Mi93ZWJwcm9wZXJ0aWVzL1VBLTU0NTE2OTkyLTEvcHJvZmlsZXMvOTIzMjAyODkvZ29hbHMifX0seyJpZCI6IjkyMzI0NzExIiwia2luZCI6ImFuYWx5dGljcyNwcm9maWxlIiwic2VsZkxpbmsiOiJodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9hbmFseXRpY3MvdjMvbWFuYWdlbWVudC9hY2NvdW50cy81NDUxNjk5Mi93ZWJwcm9wZXJ0aWVzL1VBLTU0NTE2OTkyLTEvcHJvZmlsZXMvOTIzMjQ3MTEiLCJhY2NvdW50SWQiOiI1NDUxNjk5MiIsIndlYlByb3BlcnR5SWQiOiJVQS01NDUxNjk5Mi0xIiwiaW50ZXJuYWxXZWJQcm9wZXJ0eUlkIjoiODc0Nzk0NzMiLCJuYW1lIjoiMiBUZXN0IFZpZXciLCJjdXJyZW5jeSI6IlVTRCIsInRpbWV6b25lIjoiQW1lcmljYS9Mb3NfQW5nZWxlcyIsIndlYnNpdGVVcmwiOiJodHRwczovL3Nob3AuZ29vZ2xlbWVyY2hhbmRpc2VzdG9yZS5jb20iLCJkZWZhdWx0UGFnZSI6ImhvbWUiLCJleGNsdWRlUXVlcnlQYXJhbWV0ZXJzIjoidmlkLCBjaWQsIHBhZ2Vfbm8sIG10LCBrZXksIGV4ZWN1dGVkQWN0aW9uLCBleGVjdXRlQWN0aW9uU3RhdHVzIiwic2l0ZVNlYXJjaFF1ZXJ5UGFyYW1ldGVycyI6ImtleXdvcmRzIiwic3RyaXBTaXRlU2VhcmNoUXVlcnlQYXJhbWV0ZXJzIjp0cnVlLCJ0eXBlIjoiV0VCIiwicGVybWlzc2lvbnMiOnsiZWZmZWN0aXZlIjpbIlJFQURfQU5EX0FOQUxZWkUiXX0sImNyZWF0ZWQiOiIyMDE0LTEwLTEwVDE5OjU3OjI1LjQzMFoiLCJ1cGRhdGVkIjoiMjAxNi0xMS0wOFQwODowNToxMC4wMDJaIiwiZUNvbW1lcmNlVHJhY2tpbmciOnRydWUsImVuaGFuY2VkRUNvbW1lcmNlVHJhY2tpbmciOnRydWUsImJvdEZpbHRlcmluZ0VuYWJsZWQiOnRydWUsInBhcmVudExpbmsiOnsidHlwZSI6ImFuYWx5dGljcyN3ZWJwcm9wZXJ0eSIsImhyZWYiOiJodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9hbmFseXRpY3MvdjMvbWFuYWdlbWVudC9hY2NvdW50cy81NDUxNjk5Mi93ZWJwcm9wZXJ0aWVzL1VBLTU0NTE2OTkyLTEifSwiY2hpbGRMaW5rIjp7InR5cGUiOiJhbmFseXRpY3MjZ29hbHMiLCJocmVmIjoiaHR0cHM6Ly93d3cuZ29vZ2xlYXBpcy5jb20vYW5hbHl0aWNzL3YzL21hbmFnZW1lbnQvYWNjb3VudHMvNTQ1MTY5OTIvd2VicHJvcGVydGllcy9VQS01NDUxNjk5Mi0xL3Byb2ZpbGVzLzkyMzI0NzExL2dvYWxzIn19LHsiaWQiOiIxNTcyODMwNzQiLCJraW5kIjoiYW5hbHl0aWNzI3Byb2ZpbGUiLCJzZWxmTGluayI6Imh0dHBzOi8vd3d3Lmdvb2dsZWFwaXMuY29tL2FuYWx5dGljcy92My9tYW5hZ2VtZW50L2FjY291bnRzLzg5NzAxNzEwL3dlYnByb3BlcnRpZXMvVUEtODk3MDE3MTAtMi9wcm9maWxlcy8xNTcyODMwNzQiLCJhY2NvdW50SWQiOiI4OTcwMTcxMCIsIndlYlByb3BlcnR5SWQiOiJVQS04OTcwMTcxMC0yIiwiaW50ZXJuYWxXZWJQcm9wZXJ0eUlkIjoiMTU1NjUyMzUwIiwibmFtZSI6IuOBmeOBueOBpuOBruOCpuOCp+ODluOCteOCpOODiOOBruODh+ODvOOCvyIsImN1cnJlbmN5IjoiVVNEIiwidGltZXpvbmUiOiJBc2lhL1Rva3lvIiwid2Vic2l0ZVVybCI6Imh0dHBzOi8vZ3Jvd3RoLXN1cHBvcnQubmV0LyIsInR5cGUiOiJXRUIiLCJwZXJtaXNzaW9ucyI6eyJlZmZlY3RpdmUiOlsiUkVBRF9BTkRfQU5BTFlaRSJdfSwiY3JlYXRlZCI6IjIwMTctMDgtMDhUMDQ6MjY6NTUuNjAzWiIsInVwZGF0ZWQiOiIyMDE3LTA4LTA4VDA0OjI2OjU1LjYwM1oiLCJlQ29tbWVyY2VUcmFja2luZyI6ZmFsc2UsInBhcmVudExpbmsiOnsidHlwZSI6ImFuYWx5dGljcyN3ZWJwcm9wZXJ0eSIsImhyZWYiOiJodHRwczovL3d3dy5nb29nbGVhcGlzLmNvbS9hbmFseXRpY3MvdjMvbWFuYWdlbWVudC9hY2NvdW50cy84OTcwMTcxMC93ZWJwcm9wZXJ0aWVzL1VBLTg5NzAxNzEwLTIifSwiY2hpbGRMaW5rIjp7InR5cGUiOiJhbmFseXRpY3MjZ29hbHMiLCJocmVmIjoiaHR0cHM6Ly93d3cuZ29vZ2xlYXBpcy5jb20vYW5hbHl0aWNzL3YzL21hbmFnZW1lbnQvYWNjb3VudHMvODk3MDE3MTAvd2VicHJvcGVydGllcy9VQS04OTcwMTcxMC0yL3Byb2ZpbGVzLzE1NzI4MzA3NC9nb2FscyJ9fV19
+    http_version: 
+  recorded_at: Sun, 26 Nov 2017 16:36:04 GMT
+- request:
+    method: get
+    uri: https://www.googleapis.com/analytics/v3/management/accounts/54516992/webproperties/UA-54516992-1/profiles/90822334/goals
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.12.2
+      Authorization:
+      - Bearer ya29.GlwQBcY6519GZveD0nGMoCGtAiRplSe3TMS_Yc6e9Dyw4J1uBTCYokcIwWVNNIfz8XsRbmKXv6QQAt-R8GOQzzzLmPgaI1HR_LMNrXVhXEMcH-duOzDdGRsX0_13Dg
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Expires:
+      - Sun, 26 Nov 2017 16:36:04 GMT
+      Date:
+      - Sun, 26 Nov 2017 16:36:04 GMT
+      Cache-Control:
+      - private, max-age=0, must-revalidate, no-transform
+      Etag:
+      - '"sP5LBgqDii7ksJERAgMB0CpTbRM/TN0TMUI3cbCAU7bu1VwhmHg7Z_0"'
+      Vary:
+      - Origin
+      - X-Origin
+      Content-Type:
+      - application/json; charset=UTF-8
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      Server:
+      - GSE
+      Alt-Svc:
+      - hq=":443"; ma=2592000; quic=51303431; quic=51303339; quic=51303338; quic=51303337;
+        quic=51303335,quic=":443"; ma=2592000; v="41,39,38,37,35"
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: '{"kind":"analytics#goals","username":"grosup.dev@gmail.com","totalResults":4,"startIndex":1,"itemsPerPage":1000,"items":[{"id":"1","kind":"analytics#goal","selfLink":"https://www.googleapis.com/analytics/v3/management/accounts/54516992/webproperties/UA-54516992-1/profiles/90822334/goals/1","accountId":"54516992","webPropertyId":"UA-54516992-1","internalWebPropertyId":"87479473","profileId":"90822334","name":"Purchase
+        Completed","value":0.0,"active":true,"type":"URL_DESTINATION","created":"2014-10-10T20:02:07.436Z","updated":"2016-07-26T23:15:21.614Z","parentLink":{"type":"analytics#profile","href":"https://www.googleapis.com/analytics/v3/management/accounts/54516992/webproperties/UA-54516992-1/profiles/90822334"},"urlDestinationDetails":{"url":"/ordercompleted\\.html","caseSensitive":false,"matchType":"REGEX","firstStepRequired":true,"steps":[{"number":1,"name":"Cart","url":"/basket\\.html"},{"number":2,"name":"Billing
+        and Shipping","url":"/yourinfo\\.html|/guestregister\\.html|/shipping\\.html"},{"number":3,"name":"Payment","url":"/payment\\.html"},{"number":4,"name":"Review","url":"/revieworder\\.html"}]}},{"id":"2","kind":"analytics#goal","selfLink":"https://www.googleapis.com/analytics/v3/management/accounts/54516992/webproperties/UA-54516992-1/profiles/90822334/goals/2","accountId":"54516992","webPropertyId":"UA-54516992-1","internalWebPropertyId":"87479473","profileId":"90822334","name":"Engaged
+        Users","value":0.0,"active":true,"type":"VISIT_NUM_PAGES","created":"2016-07-26T23:16:38.628Z","updated":"2016-07-26T23:16:38.628Z","parentLink":{"type":"analytics#profile","href":"https://www.googleapis.com/analytics/v3/management/accounts/54516992/webproperties/UA-54516992-1/profiles/90822334"},"visitNumPagesDetails":{"comparisonType":"GREATER_THAN","comparisonValue":"10"}},{"id":"3","kind":"analytics#goal","selfLink":"https://www.googleapis.com/analytics/v3/management/accounts/54516992/webproperties/UA-54516992-1/profiles/90822334/goals/3","accountId":"54516992","webPropertyId":"UA-54516992-1","internalWebPropertyId":"87479473","profileId":"90822334","name":"Registrations","value":0.0,"active":true,"type":"URL_DESTINATION","created":"2016-07-26T23:17:44.360Z","updated":"2016-07-26T23:17:44.360Z","parentLink":{"type":"analytics#profile","href":"https://www.googleapis.com/analytics/v3/management/accounts/54516992/webproperties/UA-54516992-1/profiles/90822334"},"urlDestinationDetails":{"url":"/registersuccess\\.html","caseSensitive":false,"matchType":"REGEX","firstStepRequired":false}},{"id":"4","kind":"analytics#goal","selfLink":"https://www.googleapis.com/analytics/v3/management/accounts/54516992/webproperties/UA-54516992-1/profiles/90822334/goals/4","accountId":"54516992","webPropertyId":"UA-54516992-1","internalWebPropertyId":"87479473","profileId":"90822334","name":"Entered
+        Checkout","value":0.0,"active":true,"type":"URL_DESTINATION","created":"2016-07-26T23:18:50.946Z","updated":"2016-07-26T23:18:50.946Z","parentLink":{"type":"analytics#profile","href":"https://www.googleapis.com/analytics/v3/management/accounts/54516992/webproperties/UA-54516992-1/profiles/90822334"},"urlDestinationDetails":{"url":"/yourinfo\\.html|/guestregister\\.html|/shipping\\.html","caseSensitive":false,"matchType":"REGEX","firstStepRequired":false}}]}'
+    http_version: 
+  recorded_at: Sun, 26 Nov 2017 16:36:04 GMT
+recorded_with: VCR 3.0.3

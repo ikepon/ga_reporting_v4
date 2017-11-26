@@ -18,9 +18,7 @@ module Support
     end
 
     def access_token
-      VCR.use_cassette('support/oauth') do
-        OAuth2::AccessToken.new(client, token)
-      end
+      OAuth2::AccessToken.new(client, token)
     end
   end
 end
