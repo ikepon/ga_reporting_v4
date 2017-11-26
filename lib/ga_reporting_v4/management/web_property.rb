@@ -12,7 +12,7 @@ module GaReportingV4
       attr_accessor :attributes, :user, :profiles
 
       def initialize(attributes, user, profiles = nil)
-        GA_ATTRIBUTES.each do |key,string_key|
+        GA_ATTRIBUTES.each do |key, string_key|
           self.send("#{key}=", attributes.delete(string_key) || attributes.delete(key))
         end
 
@@ -37,12 +37,6 @@ module GaReportingV4
 
         def for_account(account)
           all(account.user, account.path + '/webproperties')
-        end
-
-        def from_child(child)
-          path = new({ id: child.web_property_id, account_id: child.account_id }, nil).path
-
-          get(child.user, path)
         end
       end
 
