@@ -10,6 +10,45 @@ describe GaReportingV4::Management::Account do
       expect(account.user).to eq(user)
     end
 
+    let!(:summary_attributes) { {
+      "id"=>"54516992",
+      "kind"=>"analytics#accountSummary",
+      "name"=>"Demo Account (Beta)",
+      "webProperties"=>
+      [{
+        "kind"=>"analytics#webPropertySummary",
+        "id"=>"UA-54516992-1",
+        "name"=>"Google Merchandise Store",
+        "internalWebPropertyId"=>"87479473",
+        "level"=>"STANDARD",
+        "websiteUrl"=>"https://shop.googlemerchandisestore.com",
+        "profiles"=> [{
+          "kind"=>"analytics#profileSummary",
+          "id"=>"92320289",
+          "name"=>"1 Master View",
+          "type"=>"WEB"
+        },
+        {
+          "kind"=>"analytics#profileSummary",
+          "id"=>"92324711",
+          "name"=>"2 Test View",
+          "type"=>"WEB"
+        },
+        {
+          "kind"=>"analytics#profileSummary",
+          "id"=>"90822334",
+          "name"=>"3 Raw Data View",
+          "type"=>"WEB"
+        }]
+      }]
+    }.with_indifferent_access }
+    let!(:account_from_summary) { GaReportingV4::Management::Account.build_from_summary(summary_attributes, user) }
+    it 'returns account from account_summary' do
+      expect(account_from_summary.id).to eq('54516992')
+      expect(account_from_summary.name).to eq('Demo Account (Beta)')
+      expect(account_from_summary.user).to eq(user)
+    end
+
     let!(:account_from_child) { GaReportingV4::Management::Account.from_child(web_property) }
     it 'returns account from web_property' do
       expect(account_from_child.id).to eq('54516992')
