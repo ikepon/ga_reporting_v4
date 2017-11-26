@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe GaReportingV4 do
   context 'from_ga_string' do
     it 'converts a string google analytics syntax' do
