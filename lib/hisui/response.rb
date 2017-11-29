@@ -32,7 +32,7 @@ module Hisui
     end
 
     def data?
-      data.row_count.to_i.positive?
+      data.row_count.to_i > 0
     end
 
     private
