@@ -10,8 +10,8 @@ Gem::Specification.new do |s|
   s.authors     = ["ikepon"]
   s.email       = ["tatsuyanoheya@gmail.com"]
   s.homepage    = "https://github.com/ikepon/hisui"
-  s.summary     = "Access the Google Analytics Reporting API v4 with Ruby"
-  s.description = "Access the Google Analytics Reporting API v4 with Ruby"
+  s.summary     = "Access the Google Analytics Reporting API v4 On Rails"
+  s.description = "Access the Google Analytics Reporting API v4 On Rails"
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
