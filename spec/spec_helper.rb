@@ -9,7 +9,7 @@ require 'webmock/rspec'
 require 'vcr'
 require 'dotenv/load'
 require 'pry-byebug'
-require 'ga_reporting_v4'
+require 'hisui'
 
 require 'support/oauth'
 

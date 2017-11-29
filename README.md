@@ -1,5 +1,5 @@
-# GaReportingV4
-[![Build Status](https://travis-ci.org/ikepon/ga_reporting_v4.png)](https://travis-ci.org/ikepon/ga_reporting_v4)
+# Hisui
+[![Build Status](https://travis-ci.org/ikepon/hisui.png)](https://travis-ci.org/ikepon/hisui)
 
 
 ## Usage
@@ -9,7 +9,7 @@ How to use my plugin.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'ga_reporting_v4'
+gem 'hisui'
 ```
 
 And then execute:
@@ -19,7 +19,7 @@ $ bundle
 
 Or install it yourself as:
 ```bash
-$ gem install ga_reporting_v4
+$ gem install hisui
 ```
 
 ## Contributing
