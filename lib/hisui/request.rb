@@ -9,8 +9,8 @@ module Hisui
     def initialize(profile:, model:, **options)
       @profile = profile
       @model = model
-      @start_date = Date.current - 1.month
-      @end_date = Date.current
+      @start_date = Time.current.advance(months: -1)
+      @end_date = Time.current
 
       BASIC_OPTION_KEYS.each do |key|
         self.send("#{key}=".to_sym, options[key]) if options.try(:has_key?, key)
