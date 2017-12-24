@@ -3,21 +3,21 @@ describe Hisui::Model do
     let!(:model_class) { Class.new.tap { |klass| klass.extend(Hisui::Model) } }
     context '.metrics' do
       it 'has a metric' do
-        model_class.metrics %i[pageviews]
+        model_class.metrics :pageviews
 
         expect(model_class.metrics).to eq(Set.new([expression: 'ga:pageviews']))
       end
 
       it 'has metrics' do
-        model_class.metrics %i[pageviews sessions]
+        model_class.metrics :pageviews, :sessions
 
         expect(model_class.metrics).to eq(Set.new([{ expression: 'ga:pageviews'}, { expression: 'ga:sessions'}]))
       end
 
       it 'does not add duplicated metrics' do
-        model_class.metrics %i[pageviews sessions]
-        model_class.metrics %i[sessions]
-        model_class.metrics %i[sessions sessions]
+        model_class.metrics :pageviews, :sessions
+        model_class.metrics :sessions
+        model_class.metrics :sessions, :sessions
 
         expect(model_class.metrics).to eq(Set.new([{ expression: 'ga:pageviews'}, { expression: 'ga:sessions'}]))
       end
@@ -25,21 +25,21 @@ describe Hisui::Model do
 
     context '.dimensions' do
       it 'has a dimension' do
-        model_class.dimensions %i[medium]
+        model_class.dimensions :medium
 
         expect(model_class.dimensions).to eq(Set.new([name: 'ga:medium']))
       end
 
       it 'has dimensions' do
-        model_class.dimensions %i[medium source]
+        model_class.dimensions :medium, :source
 
         expect(model_class.dimensions).to eq(Set.new([{ name: 'ga:medium'}, { name: 'ga:source'}]))
       end
 
       it 'does not add duplicated dimensions' do
-        model_class.dimensions %i[medium source]
-        model_class.dimensions %i[source]
-        model_class.dimensions %i[source source]
+        model_class.dimensions :medium, :source
+        model_class.dimensions :source
+        model_class.dimensions :source, :source
 
         expect(model_class.dimensions).to eq(Set.new([{ name: 'ga:medium'}, { name: 'ga:source'}]))
       end
@@ -72,8 +72,8 @@ describe Hisui::Model do
       let!(:profile) { user.profiles[3] }
 
       it 'has results' do
-        model_class.metrics %i[pageviews sessions]
-        model_class.dimensions %i[medium]
+        model_class.metrics :pageviews, :sessions
+        model_class.dimensions :medium
         model_class.order_bys({ field_name: 'ga:sessions', order_type: 'VALUE', sort_order: 'DESCENDING' })
         results = model_class.results(profile: profile, start_date: Date.new(2017, 10, 1), end_date: Date.new(2017, 10, 31))
 

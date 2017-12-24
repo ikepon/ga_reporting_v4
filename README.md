@@ -37,8 +37,8 @@ profile = user.profiles.first # Select profile that you want to get Google Analy
 class DailySummary
   extend Hisui::Model
 
-  metrics %i[pageviews sessions users new_users bounce_rate pageviews_per_session avg_session_duration]
-  dimensions %i[date]
+  metrics :pageviews, :sessions, :users, :new_users, :bounce_rate, :pageviews_per_session, :avg_session_duration
+  dimensions :date
 end
 ```
 
@@ -60,7 +60,7 @@ response.total_values
 
 #=> #<OpenStruct pageviews="646", sessions="308", users="223", newUsers="144", bounceRate="77.77777777777779", pageviewsPerSession="2.3518518518518519", avgSessionDuration="62.148148148148145">
 
-response.date?
+response.data?
 
 #=> true
 ```

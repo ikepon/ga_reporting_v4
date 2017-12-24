@@ -4,7 +4,7 @@ module Hisui
     #
     # @param fields [Symbol] the names of the fields to retrieve
     # @return [ListParameter] the set of all metrics
-    def metrics(field = nil)
+    def metrics(*field)
       @metrics ||= Set.new([])
       field.try(:each) { |f| @metrics << { expression: Hisui.to_ga_string(f) } }
       @metrics
@@ -14,7 +14,7 @@ module Hisui
     #
     # @param fields [Symbol] the names of the fields to retrieve
     # @return [ListParameter] the set of all dimensions
-    def dimensions(field = nil)
+    def dimensions(*field)
       @dimensions ||= Set.new([])
       field.try(:each) { |f| @dimensions << { name: Hisui.to_ga_string(f) } }
       @dimensions
