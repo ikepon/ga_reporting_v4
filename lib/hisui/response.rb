@@ -38,7 +38,7 @@ module Hisui
     private
 
     def column_header
-      @column_header = response.reports.first.column_header
+      @column_header ||= response.reports.first.column_header
     end
 
     def metrics
@@ -66,7 +66,7 @@ module Hisui
     end
 
     def data
-      @data = response.reports.first.data
+      @data ||= response.reports.first.data
     end
   end
 end
