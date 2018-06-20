@@ -6,9 +6,9 @@ module Hisui
       @response = response
     end
 
-    def raw_attributes
-      @raw_attributes ||= begin
-        raw_attributes = []
+    def primary
+      @primary ||= begin
+        primary = []
 
         data.rows.each do |row|
           row_data = []
@@ -20,15 +20,42 @@ module Hisui
             row_data << value
           end
 
-          raw_attributes << Hash[fields.zip(row_data)]
+          primary << Hash[fields.zip(row_data)]
         end
 
-        raw_attributes.map { |attributes| OpenStruct.new(attributes) }
+        primary.map { |attributes| OpenStruct.new(attributes) }
       end
     end
 
-    def total_values
-      @total_values ||= OpenStruct.new(Hash[metrics.zip(data.totals.first.values)])
+    def compare
+      @compare ||= begin
+        compare = []
+
+        data.rows.each do |row|
+          row_data = []
+          row.dimensions.each do |dimension|
+            row_data << dimension
+          end
+
+          if row.metrics.second
+            row.metrics.second.values.each do |value|
+              row_data << value
+            end
+          end
+
+          compare << Hash[fields.zip(row_data)]
+        end
+
+        compare.map { |attributes| OpenStruct.new(attributes) }
+      end
+    end
+
+    def primary_total
+      @primary_total ||= OpenStruct.new(Hash[metrics.zip(data.totals.first.values)])
+    end
+
+    def compare_total
+      @compare_total ||= OpenStruct.new(Hash[metrics.zip(data.totals.try(:second).try(:values) || [])])
     end
 
     def data?
