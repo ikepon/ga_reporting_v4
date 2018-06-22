@@ -6,6 +6,11 @@ module Hisui
       @response = response
     end
 
+    def raw_attributes
+      warn "[DEPRECATION] `raw_attributes` is deprecated. Please use `primary` instead."
+      primary
+    end
+
     def primary
       @primary ||= begin
         primary = []
@@ -48,6 +53,11 @@ module Hisui
 
         compare.map { |attributes| OpenStruct.new(attributes) }
       end
+    end
+
+    def total_values
+      warn "[DEPRECATION] `total_values` is deprecated. Please use `primary_total` instead."
+      primary_total
     end
 
     def primary_total
