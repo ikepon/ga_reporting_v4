@@ -32,9 +32,9 @@ module Hisui
       end
     end
 
-    def compare
-      @compare ||= begin
-        compare = []
+    def comparing
+      @comparing ||= begin
+        comparing = []
 
         data.rows.each do |row|
           row_data = []
@@ -48,10 +48,10 @@ module Hisui
             end
           end
 
-          compare << Hash[fields.zip(row_data)]
+          comparing << Hash[fields.zip(row_data)]
         end
 
-        compare.map { |attributes| OpenStruct.new(attributes) }
+        comparing.map { |attributes| OpenStruct.new(attributes) }
       end
     end
 
@@ -64,8 +64,8 @@ module Hisui
       @primary_total ||= OpenStruct.new(Hash[metrics.zip(data.totals.first.values)])
     end
 
-    def compare_total
-      @compare_total ||= OpenStruct.new(Hash[metrics.zip(data.totals.try(:second).try(:values) || [])])
+    def comparing_total
+      @comparing_total ||= OpenStruct.new(Hash[metrics.zip(data.totals.try(:second).try(:values) || [])])
     end
 
     def data?

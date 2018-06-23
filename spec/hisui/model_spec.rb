@@ -84,11 +84,11 @@ describe Hisui::Model do
           expect(results.primary.first).to respond_to(:sessions)
           expect(results.primary_total).to respond_to(:pageviews)
           expect(results.primary_total).to respond_to(:sessions)
-          expect(results.compare.first).to respond_to(:medium)
-          expect(results.compare.first).to respond_to(:pageviews)
-          expect(results.compare.first).to respond_to(:sessions)
-          expect(results.compare_total).to respond_to(:pageviews)
-          expect(results.compare_total).to respond_to(:sessions)
+          expect(results.comparing.first).to respond_to(:medium)
+          expect(results.comparing.first).to respond_to(:pageviews)
+          expect(results.comparing.first).to respond_to(:sessions)
+          expect(results.comparing_total).to respond_to(:pageviews)
+          expect(results.comparing_total).to respond_to(:sessions)
         end
       end
 
@@ -111,11 +111,11 @@ describe Hisui::Model do
           expect(results.primary.first).to respond_to(:sessions)
           expect(results.primary_total).to respond_to(:pageviews)
           expect(results.primary_total).to respond_to(:sessions)
-          expect(results.compare.first).to respond_to(:medium)
-          expect(results.compare.first).to respond_to(:pageviews)
-          expect(results.compare.first).to respond_to(:sessions)
-          expect(results.compare_total).to respond_to(:pageviews)
-          expect(results.compare_total).to respond_to(:sessions)
+          expect(results.comparing.first).to respond_to(:medium)
+          expect(results.comparing.first).to respond_to(:pageviews)
+          expect(results.comparing.first).to respond_to(:sessions)
+          expect(results.comparing_total).to respond_to(:pageviews)
+          expect(results.comparing_total).to respond_to(:sessions)
         end
       end
     end
