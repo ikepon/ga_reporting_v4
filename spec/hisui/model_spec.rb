@@ -71,18 +71,52 @@ describe Hisui::Model do
       let!(:user) { Hisui::User.new(access_token) }
       let!(:profile) { user.profiles[3] }
 
-      it 'has results' do
-        model_class.metrics :pageviews, :sessions
-        model_class.dimensions :medium
-        model_class.order_bys({ field_name: 'ga:sessions', order_type: 'VALUE', sort_order: 'DESCENDING' })
-        results = model_class.results(profile: profile, start_date: Date.new(2017, 10, 1), end_date: Date.new(2017, 10, 31))
+      context 'when date range is one' do
+        it 'has results' do
+          model_class.metrics :pageviews, :sessions
+          model_class.dimensions :medium
+          model_class.order_bys({ field_name: 'ga:sessions', order_type: 'VALUE', sort_order: 'DESCENDING' })
+          results = model_class.results(profile: profile, start_date: Date.new(2017, 10, 1), end_date: Date.new(2017, 10, 31))
 
-        expect(results.data?).to be(true)
-        expect(results.raw_attributes.first).to respond_to(:medium)
-        expect(results.raw_attributes.first).to respond_to(:pageviews)
-        expect(results.raw_attributes.first).to respond_to(:sessions)
-        expect(results.total_values).to respond_to(:pageviews)
-        expect(results.total_values).to respond_to(:sessions)
+          expect(results.data?).to be(true)
+          expect(results.primary.first).to respond_to(:medium)
+          expect(results.primary.first).to respond_to(:pageviews)
+          expect(results.primary.first).to respond_to(:sessions)
+          expect(results.primary_total).to respond_to(:pageviews)
+          expect(results.primary_total).to respond_to(:sessions)
+          expect(results.comparing.first).to respond_to(:medium)
+          expect(results.comparing.first).to respond_to(:pageviews)
+          expect(results.comparing.first).to respond_to(:sessions)
+          expect(results.comparing_total).to respond_to(:pageviews)
+          expect(results.comparing_total).to respond_to(:sessions)
+        end
+      end
+
+      context 'when date ranges are two' do
+        it 'has results' do
+          model_class.metrics :pageviews, :sessions
+          model_class.dimensions :medium
+          model_class.order_bys({ field_name: 'ga:sessions', order_type: 'VALUE', sort_order: 'DESCENDING' })
+          results = model_class.results(
+            profile: profile,
+            start_date: Date.new(2017, 10, 1),
+            end_date: Date.new(2017, 10, 31),
+            compare_start_date: Date.new(2017, 9, 1),
+            compare_end_date: Date.new(2017, 9, 30)
+          )
+
+          expect(results.data?).to be(true)
+          expect(results.primary.first).to respond_to(:medium)
+          expect(results.primary.first).to respond_to(:pageviews)
+          expect(results.primary.first).to respond_to(:sessions)
+          expect(results.primary_total).to respond_to(:pageviews)
+          expect(results.primary_total).to respond_to(:sessions)
+          expect(results.comparing.first).to respond_to(:medium)
+          expect(results.comparing.first).to respond_to(:pageviews)
+          expect(results.comparing.first).to respond_to(:sessions)
+          expect(results.comparing_total).to respond_to(:pageviews)
+          expect(results.comparing_total).to respond_to(:sessions)
+        end
       end
     end
   end

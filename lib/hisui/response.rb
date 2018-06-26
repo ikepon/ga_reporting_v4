@@ -7,8 +7,13 @@ module Hisui
     end
 
     def raw_attributes
-      @raw_attributes ||= begin
-        raw_attributes = []
+      warn "[DEPRECATION] `raw_attributes` is deprecated. Please use `primary` instead."
+      primary
+    end
+
+    def primary
+      @primary ||= begin
+        primary = []
 
         data.rows.each do |row|
           row_data = []
@@ -20,15 +25,47 @@ module Hisui
             row_data << value
           end
 
-          raw_attributes << Hash[fields.zip(row_data)]
+          primary << Hash[fields.zip(row_data)]
         end
 
-        raw_attributes.map { |attributes| OpenStruct.new(attributes) }
+        primary.map { |attributes| OpenStruct.new(attributes) }
+      end
+    end
+
+    def comparing
+      @comparing ||= begin
+        comparing = []
+
+        data.rows.each do |row|
+          row_data = []
+          row.dimensions.each do |dimension|
+            row_data << dimension
+          end
+
+          if row.metrics.second
+            row.metrics.second.values.each do |value|
+              row_data << value
+            end
+          end
+
+          comparing << Hash[fields.zip(row_data)]
+        end
+
+        comparing.map { |attributes| OpenStruct.new(attributes) }
       end
     end
 
     def total_values
-      @total_values ||= OpenStruct.new(Hash[metrics.zip(data.totals.first.values)])
+      warn "[DEPRECATION] `total_values` is deprecated. Please use `primary_total` instead."
+      primary_total
+    end
+
+    def primary_total
+      @primary_total ||= OpenStruct.new(Hash[metrics.zip(data.totals.first.values)])
+    end
+
+    def comparing_total
+      @comparing_total ||= OpenStruct.new(Hash[metrics.zip(data.totals.try(:second).try(:values) || [])])
     end
 
     def data?
@@ -38,7 +75,7 @@ module Hisui
     private
 
     def column_header
-      @column_header = response.reports.first.column_header
+      @column_header ||= response.reports.first.column_header
     end
 
     def metrics
@@ -66,7 +103,7 @@ module Hisui
     end
 
     def data
-      @data = response.reports.first.data
+      @data ||= response.reports.first.data
     end
   end
 end
