@@ -1,3 +1,8 @@
+## 0.1.3 (2018-6-28)
+
+- Add rows method.
+- __BREAKING CHANGE__ Rename compare date range ( `compare_start_date` , `compare_end_date` ) to `comparing_start_date` , `comparing_end_date` .
+
 ## 0.1.2 (2018-6-26)
 
 - Deprecate `raw_attributes`. Use `primary` instead.
