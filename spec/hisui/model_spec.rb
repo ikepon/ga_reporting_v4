@@ -79,16 +79,24 @@ describe Hisui::Model do
           results = model_class.results(profile: profile, start_date: Date.new(2017, 10, 1), end_date: Date.new(2017, 10, 31))
 
           expect(results.data?).to be(true)
+
           expect(results.primary.first).to respond_to(:medium)
           expect(results.primary.first).to respond_to(:pageviews)
           expect(results.primary.first).to respond_to(:sessions)
           expect(results.primary_total).to respond_to(:pageviews)
           expect(results.primary_total).to respond_to(:sessions)
+
           expect(results.comparing.first).to respond_to(:medium)
           expect(results.comparing.first).to respond_to(:pageviews)
           expect(results.comparing.first).to respond_to(:sessions)
           expect(results.comparing_total).to respond_to(:pageviews)
           expect(results.comparing_total).to respond_to(:sessions)
+
+          expect(results.rows.first).to respond_to(:dimensions)
+          expect(results.rows.first.primary).to respond_to(:pageviews)
+          expect(results.rows.first.primary).to respond_to(:sessions)
+          expect(results.rows.first.comparing).to respond_to(:pageviews)
+          expect(results.rows.first.comparing).to respond_to(:sessions)
         end
       end
 
@@ -101,21 +109,29 @@ describe Hisui::Model do
             profile: profile,
             start_date: Date.new(2017, 10, 1),
             end_date: Date.new(2017, 10, 31),
-            compare_start_date: Date.new(2017, 9, 1),
-            compare_end_date: Date.new(2017, 9, 30)
+            comparing_start_date: Date.new(2017, 9, 1),
+            comparing_end_date: Date.new(2017, 9, 30)
           )
 
           expect(results.data?).to be(true)
+
           expect(results.primary.first).to respond_to(:medium)
           expect(results.primary.first).to respond_to(:pageviews)
           expect(results.primary.first).to respond_to(:sessions)
           expect(results.primary_total).to respond_to(:pageviews)
           expect(results.primary_total).to respond_to(:sessions)
+
           expect(results.comparing.first).to respond_to(:medium)
           expect(results.comparing.first).to respond_to(:pageviews)
           expect(results.comparing.first).to respond_to(:sessions)
           expect(results.comparing_total).to respond_to(:pageviews)
           expect(results.comparing_total).to respond_to(:sessions)
+
+          expect(results.rows.first).to respond_to(:dimensions)
+          expect(results.rows.first.primary).to respond_to(:pageviews)
+          expect(results.rows.first.primary).to respond_to(:sessions)
+          expect(results.rows.first.comparing).to respond_to(:pageviews)
+          expect(results.rows.first.comparing).to respond_to(:sessions)
         end
       end
     end

@@ -2,9 +2,9 @@ require 'google/apis/analyticsreporting_v4'
 
 module Hisui
   class Request
-    BASIC_OPTION_KEYS = [:start_date, :end_date, :compare_start_date, :compare_end_date, :limit]
+    BASIC_OPTION_KEYS = [:start_date, :end_date, :comparing_start_date, :comparing_end_date, :limit, :sort]
 
-    attr_accessor :profile, :model, :start_date, :end_date, :compare_start_date, :compare_end_date, :limit
+    attr_accessor :profile, :model, :start_date, :end_date, :comparing_start_date, :comparing_end_date, :limit
 
     def initialize(profile:, model:, **options)
       @profile = profile
@@ -24,8 +24,8 @@ module Hisui
       date_ranges = []
       date_ranges << Google::Apis::AnalyticsreportingV4::DateRange.new(start_date: start_date.to_s, end_date: end_date.to_s)
 
-      if compare_start_date && compare_end_date
-        date_ranges << Google::Apis::AnalyticsreportingV4::DateRange.new(start_date: compare_start_date.to_s, end_date: compare_end_date.to_s)
+      if comparing_start_date && comparing_end_date
+        date_ranges << Google::Apis::AnalyticsreportingV4::DateRange.new(start_date: comparing_start_date.to_s, end_date: comparing_end_date.to_s)
       end
 
       request = Google::Apis::AnalyticsreportingV4::GetReportsRequest.new(
