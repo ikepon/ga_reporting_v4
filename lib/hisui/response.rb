@@ -55,6 +55,35 @@ module Hisui
       end
     end
 
+    def rows
+      @rows ||= begin
+        rows = []
+
+        data.rows.each do |row|
+          dimension_values = row.dimensions
+          primary_data = []
+          comparing_data = []
+
+          row.metrics.first.values.each do |value|
+            primary_data << value
+          end
+
+          if row.metrics.second
+            row.metrics.second.values.each do |value|
+              comparing_data << value
+            end
+          end
+
+          rows << {
+            dimensions: OpenStruct.new(Hash[dimensions.zip(dimension_values)]),
+            primary: OpenStruct.new(Hash[metrics.zip(primary_data)]),
+            comparing: OpenStruct.new(Hash[metrics.zip(comparing_data)]) }
+        end
+
+        rows.map { |attributes| OpenStruct.new(attributes) }
+      end
+    end
+
     def total_values
       warn "[DEPRECATION] `total_values` is deprecated. Please use `primary_total` instead."
       primary_total
@@ -76,6 +105,14 @@ module Hisui
 
     def column_header
       @column_header ||= response.reports.first.column_header
+    end
+
+    def dimensions
+      @dimensions ||= begin
+        column_header.dimensions.each_with_object([]) do |dimension, arr|
+          arr << Hisui.from_ga_string(dimension)
+        end
+      end
     end
 
     def metrics
