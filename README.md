@@ -44,9 +44,9 @@ end
 
 3. Get Google Analytics API response with `results` methods.
 Set `start_date` and `end_date` if you need.(defult period is past one month)
-Set `compare_start_date` and `compare_end_date` if you need.
+Set `comparing_start_date` and `comparing_end_date` if you need.
 ```ruby
-response = DailySummary.results(profile: profile, start_date: Date.current - 7.days, end_date: Date.current, compare_start_date: Date.current - 7.days - 1.month, compare_end_date: Date.current - 1.month)
+response = DailySummary.results(profile: profile, start_date: Date.current - 7.days, end_date: Date.current, comparing_start_date: Date.current - 7.days - 1.month, comparing_end_date: Date.current - 1.month)
 ```
 
 4. Use data.
