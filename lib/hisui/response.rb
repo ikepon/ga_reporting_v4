@@ -15,7 +15,7 @@ module Hisui
       @primary ||= begin
         primary = []
 
-        data.rows.each do |row|
+        data.try(:rows).try(:each) do |row|
           row_data = []
           row.dimensions.each do |dimension|
             row_data << dimension
@@ -36,7 +36,7 @@ module Hisui
       @comparing ||= begin
         comparing = []
 
-        data.rows.each do |row|
+        data.try(:rows).try(:each) do |row|
           row_data = []
           row.dimensions.each do |dimension|
             row_data << dimension
@@ -59,7 +59,7 @@ module Hisui
       @rows ||= begin
         rows = []
 
-        data.rows.each do |row|
+        data.try(:rows).try(:each) do |row|
           dimension_values = row.dimensions
           primary_data = []
           comparing_data = []
