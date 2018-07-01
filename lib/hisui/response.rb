@@ -42,10 +42,8 @@ module Hisui
             row_data << dimension
           end
 
-          if row.metrics.second
-            row.metrics.second.values.each do |value|
-              row_data << value
-            end
+          row.try(:metrics).try(:second).try(:values).try(:each) do |value|
+            row_data << value
           end
 
           comparing << Hash[fields.zip(row_data)]
