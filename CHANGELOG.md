@@ -1,3 +1,7 @@
+## 0.1.4 (2018-7-1)
+
+- Fix response when data is nil.
+
 ## 0.1.3 (2018-6-28)
 
 - Add rows method.
