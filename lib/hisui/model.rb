@@ -45,7 +45,8 @@ module Hisui
     #
     # @return concatenated string
     def filters_expression(field = nil)
-      @filters_expression = "#{Hisui.to_ga_string(field[:field_name])}#{field[:operator]}#{field[:value]}" if field
+      @filters_expression ||= ''
+      @filters_expression = Hisui::FiltersExpression.new(field).to_param if field
       @filters_expression
     end
 
