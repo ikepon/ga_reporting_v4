@@ -1,3 +1,7 @@
+## 0.1.5 (2018-8-3)
+
+- Add filters expression
+
 ## 0.1.4 (2018-7-1)
 
 - Fix response when data is nil.
