@@ -88,6 +88,23 @@ response.data?
 #=> true
 ```
 
+#### Filtering
+When you set `filters_expression` method with `field_name`, `operator` and `value` params, you can filter Google Analytics Data.
+
+For example, this is filtered by organic.
+```ruby
+class OrganicMedium
+  extend Hisui::Model
+
+  metrics :pageviews, :sessions, :users, :new_users, :bounce_rate, :pageviews_per_session, :avg_session_duration
+  dimensions :medium
+  filters_expression({ field_name: 'medium', operator: '==', value: 'organic' })
+end
+```
+
+other `operator` s are [here](https://developers.google.com/analytics/devguides/reporting/core/v3/reference?hl=ja#filterOperators)
+
+
 ## Contributing
 Fork it, fix me, and send me your pull requests.
 
