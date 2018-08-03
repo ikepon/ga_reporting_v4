@@ -34,6 +34,7 @@ module Hisui
           metrics: model.metrics,
           dimensions: model.dimensions,
           date_ranges: date_ranges,
+          filters_expression: model.filters_expression,
           order_bys: model.order_bys,
           page_size: limit
         )]

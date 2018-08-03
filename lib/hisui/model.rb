@@ -34,6 +34,21 @@ module Hisui
       @order_bys
     end
 
+    # Adds filters_expression to the class for retrieval from GA
+    #
+    # @param field [Hash] options:
+    #   * field_name
+    #   * operator
+    #   * value
+    #
+    # operators are '==', '~=' and so on. cf: https://developers.google.com/analytics/devguides/reporting/core/v3/reference?hl=ja#filters
+    #
+    # @return concatenated string
+    def filters_expression(field = nil)
+      @filters_expression = "#{Hisui.to_ga_string(field[:field_name])}#{field[:operator]}#{field[:value]}" if field
+      @filters_expression
+    end
+
     def results(profile:, **options)
       Hisui::Request.new(profile: profile, model: self, **options).fetch_data
     end
