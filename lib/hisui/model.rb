@@ -2,7 +2,7 @@ module Hisui
   module Model
     # Adds metrics to the class for retrieval from GA
     #
-    # @param fields [Symbol] the names of the fields to retrieve
+    # @param field [Symbol] the names of the fields to retrieve
     # @return [ListParameter] the set of all metrics
     def metrics(*field)
       @metrics ||= Set.new([])
@@ -12,7 +12,7 @@ module Hisui
 
     # Adds dimensions to the class for retrieval from GA
     #
-    # @param fields [Symbol] the names of the fields to retrieve
+    # @param field [Symbol] the names of the fields to retrieve
     # @return [ListParameter] the set of all dimensions
     def dimensions(*field)
       @dimensions ||= Set.new([])
