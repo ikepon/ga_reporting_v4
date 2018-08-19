@@ -54,38 +54,40 @@ response = DailySummary.results(profile: profile, start_date: Date.current - 7.d
 # Deprecate
 response.raw_attributes
 
-#=> [#<OpenStruct date="20171122", pageviews="137", sessions="73", users="51", newUsers="43", bounceRate="69.56521739130434", pageviewsPerSession="2.608695652173913", avgSessionDuration="87.69565217391305">,
+# [DEPRECATION] `raw_attributes` is deprecated. Please use `primary` instead.
+# => [#<struct date="20171122", pageviews="137", sessions="73", users="51", newUsers="43", bounceRate="69.56521739130434", pageviewsPerSession="2.608695652173913", avgSessionDuration="87.69565217391305">,
 # ...
-# #<OpenStruct date="20171129", pageviews="95", sessions="67", users="44", newUsers="32", bounceRate="80.0", pageviewsPerSession="2.25", avgSessionDuration="42.0">]
+# #<struct date="20171129", pageviews="95", sessions="67", users="44", newUsers="32", bounceRate="80.0", pageviewsPerSession="2.25", avgSessionDuration="42.0">]
 
 response.primary
 
-#=> [#<OpenStruct date="20171122", pageviews="137", sessions="73", users="51", newUsers="43", bounceRate="69.56521739130434", pageviewsPerSession="2.608695652173913", avgSessionDuration="87.69565217391305">,
+# => [#<struct date="20171122", pageviews="137", sessions="73", users="51", newUsers="43", bounceRate="69.56521739130434", pageviewsPerSession="2.608695652173913", avgSessionDuration="87.69565217391305">,
 # ...
-# #<OpenStruct date="20171129", pageviews="95", sessions="67", users="44", newUsers="32", bounceRate="80.0", pageviewsPerSession="2.25", avgSessionDuration="42.0">]
+# #<struct date="20171129", pageviews="95", sessions="67", users="44", newUsers="32", bounceRate="80.0", pageviewsPerSession="2.25", avgSessionDuration="42.0">]
 
 response.comparing
 
-#=> [#<OpenStruct date="20171022", pageviews="130", sessions="69", users="45", newUsers="40", bounceRate="70.09567898751234", pageviewsPerSession="1.884057975234981", avgSessionDuration="85.02349863284283">,
+# => [#<struct date="20171022", pageviews="130", sessions="69", users="45", newUsers="40", bounceRate="70.09567898751234", pageviewsPerSession="1.884057975234981", avgSessionDuration="85.02349863284283">,
 # ...
-# #<OpenStruct date="20171029", pageviews="95", sessions="67", users="44", newUsers="32", bounceRate="80.0", pageviewsPerSession="2.25", avgSessionDuration="42.0">]
+# #<struct date="20171029", pageviews="95", sessions="67", users="44", newUsers="32", bounceRate="80.0", pageviewsPerSession="2.25", avgSessionDuration="42.0">]
 
 # Deprecate
 response.total_values
 
-#=> #<OpenStruct pageviews="646", sessions="308", users="223", newUsers="144", bounceRate="77.77777777777779", pageviewsPerSession="2.3518518518518519", avgSessionDuration="62.148148148148145">
+# [DEPRECATION] `total_values` is deprecated. Please use `primary_total` instead.
+#=> #<struct pageviews="646", sessions="308", users="223", newUsers="144", bounceRate="77.77777777777779", pageviewsPerSession="2.3518518518518519", avgSessionDuration="62.148148148148145">
 
 response.primary_total
 
-#=> #<OpenStruct pageviews="646", sessions="308", users="223", newUsers="144", bounceRate="77.77777777777779", pageviewsPerSession="2.3518518518518519", avgSessionDuration="62.148148148148145">
+# => #<struct pageviews="646", sessions="308", users="223", newUsers="144", bounceRate="77.77777777777779", pageviewsPerSession="2.3518518518518519", avgSessionDuration="62.148148148148145">
 
 response.comparing_total
 
-#=> #<OpenStruct pageviews="640", sessions="299", users="213", newUsers="138", bounceRate="75.97253924292489", pageviewsPerSession="2.1404682398523578", avgSessionDuration="60.814845134904329">
+# => #<struct pageviews="640", sessions="299", users="213", newUsers="138", bounceRate="75.97253924292489", pageviewsPerSession="2.1404682398523578", avgSessionDuration="60.814845134904329">
 
 response.data?
 
-#=> true
+# => true
 ```
 
 #### Filtering
