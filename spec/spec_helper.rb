@@ -33,4 +33,7 @@ RSpec.configure do |config|
       VCR.use_cassette(name, options, &example)
     end
   end
+
+  config.filter_run :focus
+  config.run_all_when_everything_filtered = true
 end

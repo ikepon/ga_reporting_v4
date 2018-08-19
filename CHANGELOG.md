@@ -1,3 +1,7 @@
+## 0.1.6 (2018-8-19)
+
+- Use Struct instead of OpenStruct
+
 ## 0.1.5 (2018-8-3)
 
 - Add filters expression

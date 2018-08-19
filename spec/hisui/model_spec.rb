@@ -88,23 +88,48 @@ describe Hisui::Model do
           results = model_class.results(profile: profile, start_date: Date.new(2017, 10, 1), end_date: Date.new(2017, 10, 31))
 
           expect(results.data?).to be(true)
-          expect(results.primary.first).to respond_to(:medium)
-          expect(results.primary.first).to respond_to(:pageviews)
-          expect(results.primary.first).to respond_to(:sessions)
-          expect(results.primary_total).to respond_to(:pageviews)
-          expect(results.primary_total).to respond_to(:sessions)
 
-          expect(results.comparing.first).to respond_to(:medium)
-          expect(results.comparing.first).to respond_to(:pageviews)
-          expect(results.comparing.first).to respond_to(:sessions)
-          expect(results.comparing_total).to respond_to(:pageviews)
-          expect(results.comparing_total).to respond_to(:sessions)
+          expect(results.primary.first.medium).to eq('organic')
+          expect(results.primary.first.pageviews).to eq('673')
+          expect(results.primary.first.sessions).to eq('509')
+          expect(results.primary.second.medium).to eq('(none)')
+          expect(results.primary.second.pageviews).to eq('58')
+          expect(results.primary.second.sessions).to eq('23')
+          expect(results.primary.third.medium).to eq('referral')
+          expect(results.primary.third.pageviews).to eq('2')
+          expect(results.primary.third.sessions).to eq('2')
+          expect(results.primary_total.pageviews).to eq('733')
+          expect(results.primary_total.sessions).to eq('534')
 
-          expect(results.rows.first).to respond_to(:dimensions)
-          expect(results.rows.first.primary).to respond_to(:pageviews)
-          expect(results.rows.first.primary).to respond_to(:sessions)
-          expect(results.rows.first.comparing).to respond_to(:pageviews)
-          expect(results.rows.first.comparing).to respond_to(:sessions)
+          expect(results.comparing.first.medium).to eq('organic')
+          expect(results.comparing.first.pageviews).to be_nil
+          expect(results.comparing.first.sessions).to be_nil
+          expect(results.comparing.second.medium).to eq('(none)')
+          expect(results.comparing.second.pageviews).to be_nil
+          expect(results.comparing.second.sessions).to be_nil
+          expect(results.comparing.third.medium).to eq('referral')
+          expect(results.comparing.third.pageviews).to be_nil
+          expect(results.comparing.third.sessions).to be_nil
+          expect(results.comparing_total.pageviews).to be_nil
+          expect(results.comparing_total.sessions).to be_nil
+
+          expect(results.rows.first.dimensions.medium).to eq('organic')
+          expect(results.rows.first.primary.pageviews).to eq('673')
+          expect(results.rows.first.primary.sessions).to eq('509')
+          expect(results.rows.first.comparing.pageviews).to be_nil
+          expect(results.rows.first.comparing.sessions).to be_nil
+
+          expect(results.rows.second.dimensions.medium).to eq('(none)')
+          expect(results.rows.second.primary.pageviews).to eq('58')
+          expect(results.rows.second.primary.sessions).to eq('23')
+          expect(results.rows.second.comparing.pageviews).to be_nil
+          expect(results.rows.second.comparing.sessions).to be_nil
+
+          expect(results.rows.third.dimensions.medium).to eq('referral')
+          expect(results.rows.third.primary.pageviews).to eq('2')
+          expect(results.rows.third.primary.sessions).to eq('2')
+          expect(results.rows.third.comparing.pageviews).to be_nil
+          expect(results.rows.third.comparing.sessions).to be_nil
         end
       end
 
@@ -123,23 +148,47 @@ describe Hisui::Model do
 
           expect(results.data?).to be(true)
 
-          expect(results.primary.first).to respond_to(:medium)
-          expect(results.primary.first).to respond_to(:pageviews)
-          expect(results.primary.first).to respond_to(:sessions)
-          expect(results.primary_total).to respond_to(:pageviews)
-          expect(results.primary_total).to respond_to(:sessions)
+          expect(results.primary.first.medium).to eq('organic')
+          expect(results.primary.first.pageviews).to eq('673')
+          expect(results.primary.first.sessions).to eq('509')
+          expect(results.primary.second.medium).to eq('(none)')
+          expect(results.primary.second.pageviews).to eq('58')
+          expect(results.primary.second.sessions).to eq('23')
+          expect(results.primary.third.medium).to eq('referral')
+          expect(results.primary.third.pageviews).to eq('2')
+          expect(results.primary.third.sessions).to eq('2')
+          expect(results.primary_total.pageviews).to eq('733')
+          expect(results.primary_total.sessions).to eq('534')
 
-          expect(results.comparing.first).to respond_to(:medium)
-          expect(results.comparing.first).to respond_to(:pageviews)
-          expect(results.comparing.first).to respond_to(:sessions)
-          expect(results.comparing_total).to respond_to(:pageviews)
-          expect(results.comparing_total).to respond_to(:sessions)
+          expect(results.comparing.first.medium).to eq('organic')
+          expect(results.comparing.first.pageviews).to eq('595')
+          expect(results.comparing.first.sessions).to eq('480')
+          expect(results.comparing.second.medium).to eq('(none)')
+          expect(results.comparing.second.pageviews).to eq('78')
+          expect(results.comparing.second.sessions).to eq('32')
+          expect(results.comparing.third.medium).to eq('referral')
+          expect(results.comparing.third.pageviews).to eq('7')
+          expect(results.comparing.third.sessions).to eq('7')
+          expect(results.comparing_total.pageviews).to eq('680')
+          expect(results.comparing_total.sessions).to eq('519')
 
-          expect(results.rows.first).to respond_to(:dimensions)
-          expect(results.rows.first.primary).to respond_to(:pageviews)
-          expect(results.rows.first.primary).to respond_to(:sessions)
-          expect(results.rows.first.comparing).to respond_to(:pageviews)
-          expect(results.rows.first.comparing).to respond_to(:sessions)
+          expect(results.rows.first.dimensions.medium).to eq('organic')
+          expect(results.rows.first.primary.pageviews).to eq('673')
+          expect(results.rows.first.primary.sessions).to eq('509')
+          expect(results.rows.first.comparing.pageviews).to eq('595')
+          expect(results.rows.first.comparing.sessions).to eq('480')
+
+          expect(results.rows.second.dimensions.medium).to eq('(none)')
+          expect(results.rows.second.primary.pageviews).to eq('58')
+          expect(results.rows.second.primary.sessions).to eq('23')
+          expect(results.rows.second.comparing.pageviews).to eq('78')
+          expect(results.rows.second.comparing.sessions).to eq('32')
+
+          expect(results.rows.third.dimensions.medium).to eq('referral')
+          expect(results.rows.third.primary.pageviews).to eq('2')
+          expect(results.rows.third.primary.sessions).to eq('2')
+          expect(results.rows.third.comparing.pageviews).to eq('7')
+          expect(results.rows.third.comparing.sessions).to eq('7')
         end
       end
 

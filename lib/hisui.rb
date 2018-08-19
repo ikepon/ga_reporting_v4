@@ -4,6 +4,7 @@ require 'hisui/user'
 require 'hisui/model'
 require 'hisui/request'
 require 'hisui/response'
+require 'hisui/response/ga_data'
 require 'hisui/filters_expression'
 
 require 'hisui/management/base'
