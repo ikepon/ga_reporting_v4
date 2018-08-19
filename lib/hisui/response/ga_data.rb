@@ -8,10 +8,9 @@ module Hisui
       end
 
       def construct(ordinal)
-        ga_data = []
         row_data_struct = Struct.new(*fields)
 
-        data.try(:rows).try(:each) do |row|
+        data.try(:rows).try(:each_with_object, []) do |row, arr|
           row_data = []
           row.dimensions.each do |dimension|
             row_data << dimension
@@ -21,10 +20,8 @@ module Hisui
             row_data << value
           end
 
-          ga_data << row_data_struct.new(*row_data)
+          arr << row_data_struct.new(*row_data)
         end
-
-        ga_data
       end
 
       def sum(ordinal)
@@ -34,9 +31,7 @@ module Hisui
 
       def rows
         @rows ||= begin
-          rows = []
-
-          data.try(:rows).try(:each) do |row|
+          data.try(:rows).try(:each_with_object, []) do |row, arr|
             dimension_values = row.dimensions
             primary_data = []
             comparing_data = []
@@ -55,10 +50,8 @@ module Hisui
             dimension_struct = Struct.new(*dimensions)
             metric_struct = Struct.new(*metrics)
 
-            rows << rows_struct.new(dimension_struct.new(*dimension_values), metric_struct.new(*primary_data), metric_struct.new(*comparing_data))
+            arr << rows_struct.new(dimension_struct.new(*dimension_values), metric_struct.new(*primary_data), metric_struct.new(*comparing_data))
           end
-
-          rows
         end
       end
 
