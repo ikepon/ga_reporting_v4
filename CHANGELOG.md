@@ -1,10 +1,14 @@
+## 0.1.7 (2018-8-24)
+
+- Filter google analytics data only primary or comparing when dimensions have date.
+
 ## 0.1.6 (2018-8-19)
 
-- Use Struct instead of OpenStruct
+- Use Struct instead of OpenStruct.
 
 ## 0.1.5 (2018-8-3)
 
-- Add filters expression
+- Add filters expression.
 
 ## 0.1.4 (2018-7-1)
 
