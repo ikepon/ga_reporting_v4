@@ -41,7 +41,7 @@ module Hisui
       )
 
       response = reporting_service.batch_get_reports(request)
-      Hisui::Response.new(response)
+      Hisui::Response.new(response: response, request: self)
     end
   end
 end

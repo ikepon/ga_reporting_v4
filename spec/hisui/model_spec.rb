@@ -192,6 +192,71 @@ describe Hisui::Model do
         end
       end
 
+      context 'when date ranges are two, and dimensions are user_type and date' do
+        it 'has results' do
+          model_class.metrics :pageviews, :sessions
+          model_class.dimensions :user_type, :date
+          results = model_class.results(
+            profile: profile,
+            start_date: Date.new(2017, 10, 1),
+            end_date: Date.new(2017, 10, 31),
+            comparing_start_date: Date.new(2017, 9, 1),
+            comparing_end_date: Date.new(2017, 9, 30)
+          )
+
+          expect(results.data?).to be(true)
+
+          expect(results.primary.first.date).to eq('20171001')
+          expect(results.primary.last.date).to eq('20171031')
+          expect(results.comparing.first.date).to eq('20170901')
+          expect(results.comparing.last.date).to eq('20170930')
+        end
+      end
+
+      context 'when date ranges are two, and dimensions is dateHour' do
+        it 'has results' do
+          model_class.metrics :pageviews, :sessions
+          model_class.dimensions :date_hour
+          results = model_class.results(
+            profile: profile,
+            start_date: Date.new(2017, 10, 1),
+            end_date: Date.new(2017, 10, 31),
+            comparing_start_date: Date.new(2017, 9, 1),
+            comparing_end_date: Date.new(2017, 9, 30)
+          )
+
+          expect(results.data?).to be(true)
+
+          expect(results.primary.first.dateHour).to eq('2017100100')
+          expect(results.primary.last.dateHour).to eq('2017103121')
+          expect(results.comparing.first.dateHour).to eq('2017090108')
+          expect(results.comparing.last.dateHour).to eq('2017093022')
+        end
+      end
+
+      context 'when date ranges are two, and dimensions are date and dateHourMinute' do
+        it 'has results' do
+          model_class.metrics :pageviews, :sessions
+          model_class.dimensions :date_hour_minute, :date
+          results = model_class.results(
+            profile: profile,
+            start_date: Date.new(2017, 10, 1),
+            end_date: Date.new(2017, 10, 31),
+            comparing_start_date: Date.new(2017, 9, 1),
+            comparing_end_date: Date.new(2017, 9, 30)
+          )
+
+          expect(results.data?).to be(true)
+
+          # NOTE: 1,000 data per request. In this case, primary data is 375 and comparing data is 625
+          #       So,  `results.primary.last.dateHourMinute` is '201710191320'.
+          expect(results.primary.first.dateHourMinute).to eq('201710010001')
+          expect(results.primary.last.dateHourMinute).to eq('201710191320')
+          expect(results.comparing.first.dateHourMinute).to eq('201709010841')
+          expect(results.comparing.last.dateHourMinute).to eq('201709302204')
+        end
+      end
+
       context 'when filters_expression is set' do
         it 'has results' do
           model_class.metrics :pageviews, :sessions
