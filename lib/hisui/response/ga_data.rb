@@ -1,16 +1,20 @@
 module Hisui
   class Response
     class GaData
-      attr_reader :response
+      attr_reader :response, :date_ranges
 
-      def initialize(response)
+      DATE_DIMENSIONS = %w[ga:date ga:dateHour ga:dateHourMinute].freeze
+
+      def initialize(response:, request:)
         @response = response
+        @date_ranges = [Range.new(request.start_date.beginning_of_day, request.end_date.end_of_day), Range.new(request.try(:comparing_start_date).try(:beginning_of_day), request.try(:comparing_end_date).try(:end_of_day))]
       end
 
       def construct(ordinal)
         row_data_struct = Struct.new(*fields)
 
         data.try(:rows).try(:each_with_object, []) do |row, arr|
+          next if date_indices.present? && date_indices.all? { |index| date_ranges.try(ordinal.to_sym).exclude?(row.dimensions[index].in_time_zone) }
           row_data = []
           row.dimensions.each do |dimension|
             row_data << dimension
@@ -94,6 +98,18 @@ module Hisui
           end
 
           fields
+        end
+      end
+
+      # NOTE: When dimensions include DATE_DIMENSIONS, Google Analytics data has data to include primary and comparing date range.
+      #       This is a method to filter only primary or comparing data.
+      def date_indices
+        @date_indices ||= begin
+          used_date_dimensions = DATE_DIMENSIONS & column_header.dimensions
+
+          used_date_dimensions.each_with_object([]) do |dimension, arr|
+            arr << column_header.dimensions.index(dimension)
+          end
         end
       end
 

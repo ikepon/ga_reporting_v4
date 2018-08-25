@@ -1,7 +1,7 @@
 module Hisui
   class Response
-    def initialize(response)
-      @ga_data = GaData.new(response)
+    def initialize(response:, request:)
+      @ga_data = GaData.new(response: response, request: request)
     end
 
     def raw_attributes
