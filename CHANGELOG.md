@@ -1,3 +1,7 @@
+## 0.1.8 (2019-3-23)
+
+- Filter google analytics data only primary or comparing when dimensions have year_month.
+
 ## 0.1.7 (2018-8-24)
 
 - Filter google analytics data only primary or comparing when dimensions have date.
