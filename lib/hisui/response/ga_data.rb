@@ -4,6 +4,7 @@ module Hisui
       attr_reader :response, :date_ranges
 
       DATE_DIMENSIONS = %w[ga:date ga:dateHour ga:dateHourMinute].freeze
+      MONTH_DIMENSIONS = %w[ga:yearMonth].freeze
 
       def initialize(response:, request:)
         @response = response
@@ -15,6 +16,8 @@ module Hisui
 
         data.try(:rows).try(:each_with_object, []) do |row, arr|
           next if date_indices.present? && date_indices.all? { |index| date_ranges.try(ordinal.to_sym).exclude?(row.dimensions[index].in_time_zone) }
+          next if month_indices.present? && month_indices.all? { |index| date_ranges.try(ordinal.to_sym).exclude?("#{row.dimensions[index]}01".in_time_zone) }
+
           row_data = []
           row.dimensions.each do |dimension|
             row_data << dimension
@@ -101,11 +104,23 @@ module Hisui
         end
       end
 
-      # NOTE: When dimensions include DATE_DIMENSIONS, Google Analytics data has data to include primary and comparing date range.
+      # NOTE: When dimensions include DATE_DIMENSIONS, Google Analytics data has data to include both primary and comparing date range.
       #       This is a method to filter only primary or comparing data.
       def date_indices
         @date_indices ||= begin
           used_date_dimensions = DATE_DIMENSIONS & column_header.dimensions
+
+          used_date_dimensions.each_with_object([]) do |dimension, arr|
+            arr << column_header.dimensions.index(dimension)
+          end
+        end
+      end
+
+      # NOTE: When dimensions include MONTH_DIMENSIONS, Google Analytics data has data to include both primary and comparing date range.
+      #       This is a method to filter only primary or comparing data.
+      def month_indices
+        @month_indices ||= begin
+          used_date_dimensions = MONTH_DIMENSIONS & column_header.dimensions
 
           used_date_dimensions.each_with_object([]) do |dimension, arr|
             arr << column_header.dimensions.index(dimension)
