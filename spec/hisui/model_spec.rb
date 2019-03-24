@@ -78,7 +78,7 @@ describe Hisui::Model do
 
     context '.results' do
       let!(:user) { Hisui::User.new(access_token) }
-      let!(:profile) { user.profiles[5] }
+      let!(:profile) { user.profiles[3] }
 
       context 'when date range is one' do
         it 'has results' do
@@ -231,6 +231,27 @@ describe Hisui::Model do
           expect(results.primary.last.dateHour).to eq('2017103121')
           expect(results.comparing.first.dateHour).to eq('2017090108')
           expect(results.comparing.last.dateHour).to eq('2017093022')
+        end
+      end
+
+      context 'when date ranges are two, and dimensions is yearMonth' do
+        it 'has results' do
+          model_class.metrics :pageviews, :sessions
+          model_class.dimensions :year_month
+          results = model_class.results(
+            profile: profile,
+            start_date: Date.new(2018, 1, 1),
+            end_date: Date.new(2018, 12, 31),
+            comparing_start_date: Date.new(2017, 1, 1),
+            comparing_end_date: Date.new(2017, 12, 31)
+          )
+
+          expect(results.data?).to be(true)
+
+          expect(results.primary.first.yearMonth).to eq('201801')
+          expect(results.primary.last.yearMonth).to eq('201812')
+          expect(results.comparing.first.yearMonth).to eq('201708')
+          expect(results.comparing.last.yearMonth).to eq('201712')
         end
       end
 
