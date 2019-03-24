@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.add_dependency "oauth2"
   s.add_dependency "google-api-client"
 
-  s.add_development_dependency "sqlite3"
+  s.add_development_dependency "sqlite3", "~> 1.3.13"
   s.add_development_dependency "dotenv"
   s.add_development_dependency "rspec-rails"
   s.add_development_dependency "vcr"
